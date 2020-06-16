@@ -1,0 +1,7 @@
+Found the root 0.000101 using Qn 25 ibisection.
+Found the root 0.000101 using float bisection.
+Qn 25 error= 0.000000
+Elasped time: 8.000000e-02
+Repeat timer: 2.666667e-07
+Elasped time: 1.000000e-01
+Repeat timer: 3.333333e-07

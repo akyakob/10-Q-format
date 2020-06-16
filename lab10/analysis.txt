@@ -1,0 +1,148 @@
+analysis.txt
+
+For the ibisection() function that performed the bisection method on Qn numbers,
+the value of n needed to be determined. One approach was trial and error until
+an acceptable number was found that got the correct root. Another approach
+was to keep track of the largest number recorded when calculating in the
+ibisection() function. This would help to know the largest number and thus
+the n value needed for the fractional bits of the Qn number. However, not
+every number worked because if the n value was too small then data from the 
+floating point number would be lost because if there aren't enough fractional
+bits then the whole floating point number can't be represented. If the n 
+number if too large this also presented problems because the Qn number 
+would be bigger than the number types used in calculations. For example,
+when I tried to use n=32, when it compiled a bunch of warnings said that
+the shift value (QN) was greater than the width of the type (long in this
+case) because long was used for the integer type. It didn't calculate 
+ibisection correctly because the result for the root was NAN. For an n value
+of 25 the root was calculated correctly and there was no data loss or
+overflow. I used an n value of 25 for this reason. 
+Some examples are shown to demonstrate how significant the n value is because
+even changing it slightly will cause there to be overflow or a percent error
+greater than zero.
+	--n=25
+Found the root 0.000101 using Qn 25 ibisection.
+Found the root 0.000101 using float bisection.
+Qn 25 error= 0.000000
+	--n=26
+Found the root 18.585540 using Qn 26 ibisection.
+Found the root 0.000101 using float bisection.
+Qn 26 error= 18477743.703704
+	--n=24
+Found the root 0.000101 using Qn 24 ibisection.
+Found the root 0.000101 using float bisection.
+Qn 24 error= 0.029630
+	--n=23
+Found the root 0.000100 using Qn 23 ibisection.
+Found the root 0.000101 using float bisection.
+Qn 23 error= 0.088889
+	--n=22
+Found the root 0.000100 using Qn 22 ibisection.
+Found the root 0.000101 using float bisection.
+Qn 22 error= 0.207407
+	--n=32
+Found the root -nan using Qn 32 ibisection.
+Found the root 0.000101 using float bisection.
+Qn 32 error= nan
+
+As expected, the timings for ibisection() bisection() were the quickest for 
+an optimization level of -O3 and slowest for -O0. The timings for -O2 and -O3
+were the exactly the same.
+The timing for -O1 was slightly slower than -O3 so for this reason 
+I compiled with -O3 in my makefile. Various timing outputs are shown lower 
+in the file.
+
+
+---------------------RAW OUTPUT DATA, VERBOSE ENABLED, TIMING DISABLED
+Found the root 0.000101 using Qn 25 ibisection.
+Found the root 0.000101 using float bisection.
+Qn 25 error= 0.000101
+iter:0	a:-25.000000	b:25.000000	x:0.000000	err:25.000000
+iter:1	a:0.000000	b:25.000000	x:12.500000	err:12.500000
+iter:2	a:0.000000	b:12.500000	x:6.250000	err:6.250000
+iter:3	a:0.000000	b:6.250000	x:3.125000	err:3.125000
+iter:4	a:0.000000	b:3.125000	x:1.562500	err:1.562500
+iter:5	a:0.000000	b:1.562500	x:0.781250	err:0.781250
+iter:6	a:0.000000	b:0.781250	x:0.390625	err:0.390625
+iter:7	a:0.000000	b:0.390625	x:0.195312	err:0.195312
+iter:8	a:0.000000	b:0.195312	x:0.097656	err:0.097656
+iter:9	a:0.000000	b:0.097656	x:0.048828	err:0.048828
+iter:10	a:0.000000	b:0.048828	x:0.024414	err:0.024414
+iter:11	a:0.000000	b:0.024414	x:0.012207	err:0.012207
+iter:12	a:0.000000	b:0.012207	x:0.006104	err:0.006104
+iter:13	a:0.000000	b:0.006104	x:0.003052	err:0.003052
+iter:14	a:0.000000	b:0.003052	x:0.001526	err:0.001526
+iter:15	a:0.000000	b:0.001526	x:0.000763	err:0.000763
+iter:16	a:0.000000	b:0.000763	x:0.000381	err:0.000381
+iter:17	a:0.000000	b:0.000381	x:0.000191	err:0.000191
+iter:18	a:0.000000	b:0.000191	x:0.000095	err:0.000095
+iter:19	a:0.000095	b:0.000191	x:0.000143	err:0.000048
+iter:20	a:0.000095	b:0.000143	x:0.000119	err:0.000024
+iter:21	a:0.000095	b:0.000119	x:0.000107	err:0.000012
+iter:22	a:0.000095	b:0.000107	x:0.000101	err:0.000006
+iter:23	a:0.000095	b:0.000101	x:0.000098	err:0.000003
+iter:24	a:0.000098	b:0.000101	x:0.000100	err:0.000001
+Found root: 0.000101 using ibisection
+iter:0	a:-25.000000	b:25.000000	x:0.000000	err:25.000000
+iter:1	a:0.000000	b:25.000000	x:12.500000	err:12.500000
+iter:2	a:0.000000	b:12.500000	x:6.250000	err:6.250000
+iter:3	a:0.000000	b:6.250000	x:3.125000	err:3.125000
+iter:4	a:0.000000	b:3.125000	x:1.562500	err:1.562500
+iter:5	a:0.000000	b:1.562500	x:0.781250	err:0.781250
+iter:6	a:0.000000	b:0.781250	x:0.390625	err:0.390625
+iter:7	a:0.000000	b:0.390625	x:0.195312	err:0.195312
+iter:8	a:0.000000	b:0.195312	x:0.097656	err:0.097656
+iter:9	a:0.000000	b:0.097656	x:0.048828	err:0.048828
+iter:10	a:0.000000	b:0.048828	x:0.024414	err:0.024414
+iter:11	a:0.000000	b:0.024414	x:0.012207	err:0.012207
+iter:12	a:0.000000	b:0.012207	x:0.006104	err:0.006104
+iter:13	a:0.000000	b:0.006104	x:0.003052	err:0.003052
+iter:14	a:0.000000	b:0.003052	x:0.001526	err:0.001526
+iter:15	a:0.000000	b:0.001526	x:0.000763	err:0.000763
+iter:16	a:0.000000	b:0.000763	x:0.000381	err:0.000381
+iter:17	a:0.000000	b:0.000381	x:0.000191	err:0.000191
+iter:18	a:0.000000	b:0.000191	x:0.000095	err:0.000095
+iter:19	a:0.000095	b:0.000191	x:0.000143	err:0.000048
+iter:20	a:0.000095	b:0.000143	x:0.000119	err:0.000024
+iter:21	a:0.000095	b:0.000119	x:0.000107	err:0.000012
+iter:22	a:0.000095	b:0.000107	x:0.000101	err:0.000006
+iter:23	a:0.000095	b:0.000101	x:0.000098	err:0.000003
+iter:24	a:0.000098	b:0.000101	x:0.000100	err:0.000001
+Found root: 0.000101 using bisection
+
+---------------------------------RAW OUTPUT DATA, TIMING ENABLED, VERBOSE DISABLED
+	--for -O3
+Found the root 0.000101 using Qn 25 ibisection.
+Found the root 0.000101 using float bisection.
+Qn 25 error= 0.000000
+Elasped time: 8.000000e-02
+Repeat timer: 2.666667e-07
+Elasped time: 1.000000e-01
+Repeat timer: 3.333333e-07
+
+	--for -O2
+Found the root 0.000101 using Qn 25 ibisection.
+Found the root 0.000101 using float bisection.
+Qn 25 error= 0.000000
+Elasped time: 8.000000e-02
+Repeat timer: 2.666667e-07
+Elasped time: 1.000000e-01
+Repeat timer: 3.333333e-07
+
+	--for -O1
+Found the root 0.000101 using Qn 25 ibisection.
+Found the root 0.000101 using float bisection.
+Qn 25 error= 0.000000
+Elasped time: 9.000000e-02
+Repeat timer: 3.000000e-07
+Elasped time: 1.200000e-01
+Repeat timer: 4.000000e-07
+
+	--for -O0
+Found the root 0.000101 using Qn 25 ibisection.
+Found the root 0.000101 using float bisection.
+Qn 25 error= 0.000000
+Elasped time: 1.600000e-01
+Repeat timer: 5.333333e-07
+Elasped time: 2.100000e-01
+Repeat timer: 7.000000e-07

@@ -1,0 +1,93 @@
+Sample intTest code with timing enabled and verbose disabled
+
+Test for integer
+Found the root 0.000101 using Qn ?? integer bisection (32b int, 64b long 64b ptr)
+Elapsed CPU Time (timer) = 0.875 sec.
+Elapsed CPU Time per Iteration (timer, 5000000) =  1.75e-07 sec.
+
+Found the root 0.000101 using float bisection.
+Elapsed CPU Time (timer) = 0.765625 sec.
+Elapsed CPU Time per Iteration (timer, 5000000) =  1.53e-07 sec.
+Qn ?? error= 0.000000%
+
+
+Sample output with timing disabled and verbose enabled
+Test for integer
+Info: ibisection is using QN= ??
+iter:0	a:-25.000000	b:25.000000	x:0.000000	err:25.000000
+iter:1	a:0.000000	b:25.000000	x:12.500000	err:12.500000
+iter:2	a:0.000000	b:12.500000	x:6.250000	err:6.250000
+iter:3	a:0.000000	b:6.250000	x:3.125000	err:3.125000
+iter:4	a:0.000000	b:3.125000	x:1.562500	err:1.562500
+iter:5	a:0.000000	b:1.562500	x:0.781250	err:0.781250
+iter:6	a:0.000000	b:0.781250	x:0.390625	err:0.390625
+iter:7	a:0.000000	b:0.390625	x:0.195312	err:0.195312
+iter:8	a:0.000000	b:0.195312	x:0.097656	err:0.097656
+iter:9	a:0.000000	b:0.097656	x:0.048828	err:0.048828
+iter:10	a:0.000000	b:0.048828	x:0.024414	err:0.024414
+iter:11	a:0.000000	b:0.024414	x:0.012207	err:0.012207
+iter:12	a:0.000000	b:0.012207	x:0.006104	err:0.006104
+iter:13	a:0.000000	b:0.006104	x:0.003052	err:0.003052
+iter:14	a:0.000000	b:0.003052	x:0.001526	err:0.001526
+iter:15	a:0.000000	b:0.001526	x:0.000763	err:0.000763
+iter:16	a:0.000000	b:0.000763	x:0.000381	err:0.000381
+iter:17	a:0.000000	b:0.000381	x:0.000191	err:0.000191
+iter:18	a:0.000000	b:0.000191	x:0.000095	err:0.000095
+iter:19	a:0.000095	b:0.000191	x:0.000143	err:0.000048
+iter:20	a:0.000095	b:0.000143	x:0.000119	err:0.000024
+iter:21	a:0.000095	b:0.000119	x:0.000107	err:0.000012
+iter:22	a:0.000095	b:0.000107	x:0.000101	err:0.000006
+iter:23	a:0.000095	b:0.000101	x:0.000098	err:0.000003
+iter:24	a:0.000098	b:0.000101	x:0.000100	err:0.000001
+Found the root 0.000101 using Qn ?? integer bisection (32b int, 64b long 64b ptr)
+
+Found the root 0.000101 using float bisection.
+Qn ?? error= 0.000000%
+iter:0	a:-25.000000	b:25.000000	x:0.000000	err:25.000000
+iter:1	a:0.000000	b:25.000000	x:12.500000	err:12.500000
+iter:2	a:0.000000	b:12.500000	x:6.250000	err:6.250000
+iter:3	a:0.000000	b:6.250000	x:3.125000	err:3.125000
+iter:4	a:0.000000	b:3.125000	x:1.562500	err:1.562500
+iter:5	a:0.000000	b:1.562500	x:0.781250	err:0.781250
+iter:6	a:0.000000	b:0.781250	x:0.390625	err:0.390625
+iter:7	a:0.000000	b:0.390625	x:0.195312	err:0.195312
+iter:8	a:0.000000	b:0.195312	x:0.097656	err:0.097656
+iter:9	a:0.000000	b:0.097656	x:0.048828	err:0.048828
+iter:10	a:0.000000	b:0.048828	x:0.024414	err:0.024414
+iter:11	a:0.000000	b:0.024414	x:0.012207	err:0.012207
+iter:12	a:0.000000	b:0.012207	x:0.006104	err:0.006104
+iter:13	a:0.000000	b:0.006104	x:0.003052	err:0.003052
+iter:14	a:0.000000	b:0.003052	x:0.001526	err:0.001526
+iter:15	a:0.000000	b:0.001526	x:0.000763	err:0.000763
+iter:16	a:0.000000	b:0.000763	x:0.000381	err:0.000381
+iter:17	a:0.000000	b:0.000381	x:0.000191	err:0.000191
+iter:18	a:0.000000	b:0.000191	x:0.000095	err:0.000095
+iter:19	a:0.000095	b:0.000191	x:0.000143	err:0.000048
+iter:20	a:0.000095	b:0.000143	x:0.000119	err:0.000024
+iter:21	a:0.000095	b:0.000119	x:0.000107	err:0.000012
+iter:22	a:0.000095	b:0.000107	x:0.000101	err:0.000006
+iter:23	a:0.000095	b:0.000101	x:0.000098	err:0.000003
+iter:24	a:0.000098	b:0.000101	x:0.000100	err:0.000001
+
+
+
+
+Sample valgrind output:
+==1255== Memcheck, a memory error detector
+==1255== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1255== Using Valgrind-3.14.0.SVN and LibVEX; rerun with -h for copyright info
+==1255== Command: ./intTest_mem
+==1255== 
+Found the root 0.000101 using Qn ?? integer bisection (32b int, 64b long 64b ptr)
+
+Found the root 0.000101 using float bisection.
+Qn ?? error= 0.000000%
+==1255== 
+==1255== HEAP SUMMARY:
+==1255==     in use at exit: 0 bytes in 0 blocks
+==1255==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==1255== 
+==1255== All heap blocks were freed -- no leaks are possible
+==1255== 
+==1255== For counts of detected and suppressed errors, rerun with: -v
+==1255== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

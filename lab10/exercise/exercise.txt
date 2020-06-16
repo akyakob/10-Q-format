@@ -1,0 +1,81 @@
+exercise.txt
+
+Qn division
+
+6) The Qn_DIVIDE() function worked fine for dividing in Qn format. Integer
+   division worked because the value is still contained for the Qn numbers.
+
+8) I did not have trouble print the absolute values because the same results
+   were the output with their absolute values so it worked as it should.
+
+Qn multiply
+
+4) There was no data when multiplying with Qn_MULTIPLY() because when the 
+   Qn number was converted back to floating point then no data was lost because
+   it was the same as the original.
+
+Qn Complex equations
+
+4) The floating point implementation gave a result of -674.93230
+
+6) The fractional implementation result was -675.000010
+
+9) The Qn implementation result was -674.934373 which is close to
+   the floating point implementation.
+
+Qn performance
+
+7) Qn addition was faster than floating point addition. Floating point
+   multiplication was faster than Qn multiplication.
+ 
+OUTPUT RESULTS
+
+
+Division test
+fnum1  qnum1(dec) qnum2(dec) qnum1(float) qnum2(float)
+-0.031250  -8192  -8192  -0.031250  -0.031250
+-0.015625  -4096  -4096  -0.015625  -0.015625
+-0.007812  -2048  -2048  -0.007812  -0.007812
+-0.003906  -1024  -1024  -0.003906  -0.003906
+-0.001953  -512  -512  -0.001953  -0.001953
+-0.000977  -256  -256  -0.000977  -0.000977
+-0.000488  -128  -128  -0.000488  -0.000488
+-0.000244  -64  -64  -0.000244  -0.000244
+-0.000122  -32  -32  -0.000122  -0.000122
+-0.000061  -16  -16  -0.000061  -0.000061
+-0.000031  -8  -8  -0.000031  -0.000031
+-0.000015  -4  -4  -0.000015  -0.000015
+-0.000008  -2  -2  -0.000008  -0.000008
+-0.000004  -1  -1  -0.000004  -0.000004
+-0.000002  0  0  0.000000  0.000000
+
+Division test 2
+fnum1  qnum1(dec) qnum2(dec) qnum1(float) qnum2(float)
+0.031250  8192  8192  0.031250  0.031250
+0.015625  4096  4096  0.015625  0.015625
+0.007812  2048  2048  0.007812  0.007812
+0.003906  1024  1024  0.003906  0.003906
+0.001953  512  512  0.001953  0.001953
+0.000977  256  256  0.000977  0.000977
+0.000488  128  128  0.000488  0.000488
+0.000244  64  64  0.000244  0.000244
+0.000122  32  32  0.000122  0.000122
+0.000061  16  16  0.000061  0.000061
+0.000031  8  8  0.000031  0.000031
+0.000015  4  4  0.000015  0.000015
+0.000008  2  2  0.000008  0.000008
+0.000004  1  1  0.000004  0.000004
+0.000002  0  0  0.000000  0.000000
+
+Multiplication test
+Product= 48.344238, qn18 product= 12673152 dec, converted back 48.344238 float
+Complex calculations test
+floating-point product: -674.932300
+fractional product: -675.000010
+Qn18 product: -674.932373
+
+Performance test
+Float point addition: 60000
+ QN addition: 50000
+Float point multiplication: 60000
+ QN multiplication: 50000

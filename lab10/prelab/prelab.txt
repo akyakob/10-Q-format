@@ -1,0 +1,38 @@
+prelab.txt
+
+3) The addition didn't work because when I added 10.0 + DBL_EPSILON the result
+   was '10' which is not correct because DBL_EPSILON represents the 
+   minimum positive number closest to 0 that is not equal to 1.0
+   i.e. 1.0 + DBL_EPSILON != 1.0
+
+Qn conversion
+
+3) Another name for a Qn0 number is an integer because there are no fractional bits.
+
+5) There was no data loss when converting 12.25 because it was converted to Q
+   format and back to float 12.25
+
+7) There was data loss because there weren't enough fractional bits to represent
+   the .0625 part of the number
+
+9) This time there was no data loss because there were enough fractional bits
+
+./lab_a
+Integers are 32 bits long
+Proving floating point has limits by adding Epsilon
+10.0 plus Epsilon is: '10'
+Epsilon value '2.22045e-16' didn't add
+
+Conversion test
+Started with 0.000000 converted to qn0 = 0 decimal then back to 0.000000
+QN 0 decimal in binary is	[00000000000000000000000000000000]
+Started with 12.250000 converted to qn3 = 98 decimal then back to 12.250000
+QN 98 decimal in binary is	[01100010]
+Started with 12.062500 converted to qn3 = 96 decimal then back to 12.000000
+QN 96 decimal in binary is	[01100000]
+Started with 12.062500 converted to qn4 = 193 decimal then back to 12.062500
+QN 193 decimal in binary is	[011000001] 
+
+The basic issues with addition and subtraction is that you may need to account
+for overflow if there is any, and with all the operations you need to account
+for if there is enough precision or enough bits to represent the whole number.
